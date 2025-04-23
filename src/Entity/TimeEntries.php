@@ -19,13 +19,14 @@ class TimeEntries
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[NotBlank]
     private ?\DateTimeInterface $start = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $duration = null;
+    #[ORM\Column(type: Types::DATEINTERVAL, nullable: true)]
+    private ?\DateInterval $duration = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $end_date = null;
+    private ?\DateTimeInterface $endDate = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
@@ -55,12 +56,12 @@ class TimeEntries
         return $this;
     }
 
-    public function getDuration(): ?\DateTimeInterface
+    public function getDuration(): ?\DateInterval
     {
         return $this->duration;
     }
 
-    public function setDuration(?\DateTimeInterface $duration): static
+    public function setDuration(?\DateInterval $duration): static
     {
         $this->duration = $duration;
 
@@ -69,12 +70,12 @@ class TimeEntries
 
     public function getEndDate(): ?\DateTimeInterface
     {
-        return $this->end_date;
+        return $this->endDate;
     }
 
-    public function setEndDate(?\DateTimeInterface $end_date): static
+    public function setEndDate(?\DateTimeInterface $endDate): static
     {
-        $this->end_date = $end_date;
+        $this->endDate = $endDate;
 
         return $this;
     }

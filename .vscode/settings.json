@@ -9,6 +9,16 @@
             "database": "app",
             "username": "app",
             "password": "password"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "app_test",
+            "database": "app_test_test",
+            "username": "app",
+            "password": "password"
         }
     ]
 }
