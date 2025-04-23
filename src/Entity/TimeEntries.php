@@ -22,7 +22,7 @@ class TimeEntries
     #[NotBlank]
     private ?\DateTimeInterface $start = null;
 
-    #[ORM\Column(type: Types::DATEINTERVAL, nullable: true)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?\DateInterval $duration = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -56,12 +56,12 @@ class TimeEntries
         return $this;
     }
 
-    public function getDuration(): ?\DateInterval
+    public function getDuration(): ?string
     {
         return $this->duration;
     }
 
-    public function setDuration(?\DateInterval $duration): static
+    public function setDuration(?string $duration): static
     {
         $this->duration = $duration;
 

@@ -1,7 +1,7 @@
 nelmio_cors:
     defaults:
         origin_regex: true
-        allow_origin: ['^http://localhost:[0-9]+$'] # Allow all localhost ports (for development)
+        allow_origin: ['*'] # Allow all localhost ports (for development)
         allow_methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
         allow_headers: ['Content-Type', 'Authorization']
         expose_headers: []
@@ -10,7 +10,7 @@ nelmio_cors:
         forced_allow_origin_value: null
     paths:
         '^/api/':
-            allow_origin: ['^http://localhost:3000$'] # Specifically allow your Nuxt dev server
+            allow_origin: ['*'] # Specifically allow your Nuxt dev server
             allow_methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
             allow_headers: ['Content-Type', 'Authorization']
             max_age: 3600
